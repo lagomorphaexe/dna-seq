@@ -46,7 +46,6 @@ const Apply = () => {
         firstName: first,
         lastName: last,
       });
-      //   const user = await createUserWithEmailAndPassword(auth, email, password);
 
       setTimeout(setSignUpError(false), 1000);
     } catch (error) {
