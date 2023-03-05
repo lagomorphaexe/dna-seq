@@ -1,27 +1,6 @@
-# Next.js + Tailwind CSS Example
+# DNA-SeQ
+For this project, I took a sequence of mutations from samples in the Interntional Genome Sample Resource (IGSR) and encoded them into a cloud firestore database. Due to the immense size of the VCF files, my database only has about a thousand mutations in it right now, though adding more is a simple process. From firebase, I accessed the data on a nextjs + tailwindcss frontend. Lastly, I hosted the finished app on Vercel, which is available at dna-seq.vercel.app.
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+The website is very user-friendly with a high level of security. Users must first apply for an account to be able to view any data, protecting against potential bad actors. An administrator can then review the application, and, upon confirming the new user's good intentions, can grant them access to the database. The users can then log in and view the data with the help of fireauth, firebase's authentication SDK. There is also added route protection, so that users without access to data do not have any way to get to it (nor can they reach the management webpages).
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Administrators also have broad control over both users and genomic data. They can set access specifiers on the raw data (which is useful for example if the user has a rare, phenotypic mutation that would allow for their identification), or they can review users' access and remotely deactivate their account in the case the original user has their account breached.
